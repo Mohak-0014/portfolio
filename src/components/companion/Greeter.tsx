@@ -16,7 +16,8 @@ import { scrollState } from "@/lib/scrollState";
  * to face its direction of travel. Floating effects (hearts, anger marks…) are
  * still drawn on top.
  *
- * Kept short and corner-anchored so it never blocks the view; hidden below `sm`.
+ * Kept short and corner-anchored so it never blocks the view; on phones it
+ * scales down (tucked into the bottom-left) so it stays out of the way.
  */
 
 const IDLE_MS = 9_000;
@@ -58,6 +59,15 @@ const TINT: Record<Mood, string> = {
 
 export default function Greeter() {
   const reduce = useReducedMotion();
+  // on phones the widget scales down so it never crowds the content
+  const [compact, setCompact] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setCompact(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
   const [sectionId, setSectionId] = useState<string>(sections[0].id);
   const [line, setLine] = useState<Line>(() => PLACARDS[sections[0].id]?.[0] ?? PLACARDS.idle[0]);
   const lineRef = useRef(line);
@@ -160,9 +170,9 @@ export default function Greeter() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed bottom-3 left-0 z-40 hidden h-[190px] w-[220px] select-none sm:block"
+      className="pointer-events-none fixed bottom-3 left-0 z-40 block h-[190px] w-[220px] origin-bottom-left select-none"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, x }}
+      animate={{ opacity: 1, x, scale: compact ? 0.8 : 1 }}
       transition={{ opacity: { delay: 0.6, duration: 0.6 }, x: { duration: walkDur, ease: "easeInOut" } }}
       onAnimationComplete={() => setWalking(false)}
     >
