@@ -23,7 +23,7 @@ export default function Contact() {
         <Reveal delay={0.1}>
           <a
             href={`mailto:${contact.email}`}
-            className="mt-10 inline-block font-display text-2xl text-moon underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent md:text-4xl"
+            className="mt-10 block w-fit max-w-full break-words font-display text-xl text-moon underline decoration-accent decoration-2 underline-offset-8 transition-colors hover:text-accent sm:text-2xl md:text-4xl"
           >
             {contact.email}
           </a>

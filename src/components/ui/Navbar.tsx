@@ -86,9 +86,11 @@ export default function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          {/* hidden on the smallest screens — Contact lives in the hamburger
+              menu there, so the row stays narrow and never overflows */}
           <button
             onClick={() => go("contact")}
-            className="btn-accent !px-5 !py-2 text-xs"
+            className="btn-accent !hidden !px-5 !py-2 text-xs sm:!inline-flex"
           >
             Get in touch
           </button>
