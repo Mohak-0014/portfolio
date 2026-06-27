@@ -17,6 +17,10 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--bg);
   color: #0f1b2d;

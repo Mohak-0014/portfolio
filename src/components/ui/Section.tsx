@@ -15,7 +15,9 @@ export default function Section({ id, children, className, bare }: Props) {
     <section
       id={id}
       className={clsx(
-        "relative w-full",
+        // clip-x so scroll-in reveals (e.g. variant="left"/"right" translate
+        // ±44px) never push past the viewport and create horizontal scroll
+        "relative w-full overflow-x-clip",
         !bare && "py-20 md:py-32",
         className
       )}

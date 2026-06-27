@@ -24,7 +24,7 @@ export default function SceneCanvas() {
   return (
     <div
       aria-hidden
-      className="pointer-events-none fixed inset-0 -z-10 h-screen w-screen"
+      className="pointer-events-none fixed inset-0 -z-10"
     >
       {/* daytime sky backdrop */}
       <div className="absolute inset-0 bg-[linear-gradient(180deg,#BFE9E0_0%,#DFF3EE_38%,#EEF7F2_64%,#FBFAF4_100%)]" />
