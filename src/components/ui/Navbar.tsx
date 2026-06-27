@@ -1,13 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { sections, profile } from "@/data/content";
 
 /** Floating top nav with smooth-scroll anchors driven by Lenis. */
 export default function Navbar() {
   const [active, setActive] = useState<string>("hero");
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const ids = sections.map((s) => s.id);
@@ -34,6 +35,7 @@ export default function Navbar() {
   }, []);
 
   const go = (id: string) => {
+    setOpen(false);
     const el = document.getElementById(id);
     if (!el) return;
     const lenis = (window as unknown as { lenis?: { scrollTo: (t: HTMLElement) => void } })
@@ -83,10 +85,74 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button onClick={() => go("contact")} className="btn-accent !px-5 !py-2 text-xs">
-          Get in touch
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => go("contact")}
+            className="btn-accent !px-5 !py-2 text-xs"
+          >
+            Get in touch
+          </button>
+
+          {/* hamburger — mobile only */}
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            className="glass grid h-10 w-10 place-items-center rounded-full text-moon md:hidden"
+          >
+            <span className="relative block h-4 w-5">
+              <motion.span
+                className="absolute left-0 block h-[2px] w-5 rounded-full bg-current"
+                animate={open ? { rotate: 45, top: 7 } : { rotate: 0, top: 1 }}
+                transition={{ duration: 0.25 }}
+                style={{ top: 1 }}
+              />
+              <motion.span
+                className="absolute left-0 top-[7px] block h-[2px] w-5 rounded-full bg-current"
+                animate={{ opacity: open ? 0 : 1 }}
+                transition={{ duration: 0.25 }}
+              />
+              <motion.span
+                className="absolute left-0 block h-[2px] w-5 rounded-full bg-current"
+                animate={open ? { rotate: -45, top: 7 } : { rotate: 0, top: 13 }}
+                transition={{ duration: 0.25 }}
+                style={{ top: 13 }}
+              />
+            </span>
+          </button>
+        </div>
       </nav>
+
+      {/* mobile dropdown panel */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobile-menu"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="container-x overflow-hidden md:hidden"
+          >
+            <ul className="glass mt-3 flex flex-col gap-1 rounded-3xl p-3">
+              {sections.map((s) => (
+                <li key={s.id}>
+                  <button
+                    onClick={() => go(s.id)}
+                    className={`w-full rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors ${
+                      active === s.id
+                        ? "bg-accent/15 text-accent"
+                        : "text-slate-600 hover:text-moon"
+                    }`}
+                  >
+                    {s.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
