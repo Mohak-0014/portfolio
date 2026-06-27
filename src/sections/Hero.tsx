@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import Section from "@/components/ui/Section";
+import Parallax from "@/components/ui/Parallax";
 import { profile, world } from "@/data/content";
 
 export default function Hero() {
   return (
     <Section id="hero" bare className="flex min-h-screen items-center">
-      <div className="container-x">
+      <Parallax amount={60} className="container-x">
         <motion.p
           className="eyebrow mb-6"
           initial={{ opacity: 0, y: 12 }}
@@ -17,14 +18,16 @@ export default function Hero() {
           {world.role} · {world.focus}
         </motion.p>
 
-        <motion.h1
-          className="font-display text-5xl font-bold leading-[1.05] text-moon sm:text-7xl md:text-8xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.35 }}
-        >
-          {profile.name}
-        </motion.h1>
+        <div className="overflow-hidden py-[0.12em]">
+          <motion.h1
+            className="font-display text-5xl font-bold leading-[1.05] text-moon sm:text-7xl md:text-8xl"
+            initial={{ y: "115%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {profile.name}
+          </motion.h1>
+        </div>
 
         <motion.p
           className="mt-6 max-w-xl text-lg text-slate-300 md:text-xl"
@@ -49,7 +52,7 @@ export default function Hero() {
             {profile.status}
           </span>
         </motion.div>
-      </div>
+      </Parallax>
 
       {/* scroll cue */}
       <motion.div

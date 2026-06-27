@@ -8,11 +8,11 @@ export default function About() {
   return (
     <Section id="about">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="left">
           <p className="eyebrow mb-4">The story so far</p>
           <h2 className="section-title max-w-3xl">
-            Every world starts with a&nbsp;
-            <span className="text-accent">first step</span>.
+            Big things start from&nbsp;
+            <span className="text-accent">small commits</span>.
           </h2>
         </Reveal>
 

@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <Section id="contact" className="pb-32">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="scale">
           <p className="eyebrow mb-4">Get in touch</p>
           <h2 className="section-title max-w-3xl">
             Let&apos;s build something
@@ -31,6 +31,14 @@ export default function Contact() {
 
         <Reveal delay={0.15}>
           <div className="mt-12 flex flex-wrap gap-3">
+            <a
+              href="/Mohak_Nahata_Resume.pdf"
+              download
+              className="btn-accent"
+            >
+              Download résumé
+              <span aria-hidden>↓</span>
+            </a>
             {contact.socials.map((s) => (
               <a
                 key={s.label}

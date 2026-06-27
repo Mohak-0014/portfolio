@@ -9,7 +9,7 @@ export default function Skills() {
   return (
     <Section id="skills">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="right">
           <p className="eyebrow mb-3">Toolkit & timeline</p>
           <h2 className="section-title">
             What I work <span className="text-accent">with</span>.

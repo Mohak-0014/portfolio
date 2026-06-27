@@ -81,7 +81,7 @@ export default function Projects() {
             <Link
               href={`/work/${p.slug}`}
               key={i}
-              className="group glass flex h-[58vh] w-[85vw] shrink-0 snap-center flex-col justify-between rounded-3xl p-9 transition-transform hover:-translate-y-1 sm:w-[68vw] md:w-[54vw] lg:w-[42vw]"
+              className="group glass flex min-h-[58vh] w-[85vw] shrink-0 snap-center flex-col justify-between gap-6 rounded-3xl p-8 transition-transform hover:-translate-y-1 sm:w-[68vw] md:w-[54vw] lg:w-[42vw]"
             >
               <div>
                 <div className="flex items-center justify-between">
@@ -90,16 +90,16 @@ export default function Projects() {
                     0{i + 1} <span className="text-slate-300/50">/ 0{projects.length}</span>
                   </span>
                 </div>
-                <h3 className="mt-8 font-display text-4xl text-moon md:text-5xl">
+                <h3 className="mt-6 font-display text-4xl text-moon md:text-5xl">
                   {p.title}
                 </h3>
                 {p.tagline && (
                   <p className="mt-3 text-accent">{p.tagline}</p>
                 )}
-                <p className="mt-5 text-lg text-slate-300">{p.blurb}</p>
+                <p className="mt-4 text-base text-slate-300 md:text-lg">{p.blurb}</p>
               </div>
 
-              <div className="mt-8">
+              <div>
                 <div className="flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <span
@@ -110,7 +110,7 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent transition-transform group-hover:translate-x-1">
                   View case study →
                 </span>
               </div>
@@ -120,7 +120,7 @@ export default function Projects() {
           {/* closing panel — extends the track and gives a satisfying end */}
           <Link
             href="#contact"
-            className="group glass flex h-[58vh] w-[80vw] shrink-0 snap-center flex-col justify-center rounded-3xl p-9 text-center transition-transform hover:-translate-y-1 sm:w-[56vw] md:w-[40vw] lg:w-[30vw]"
+            className="group glass flex min-h-[58vh] w-[80vw] shrink-0 snap-center flex-col justify-center rounded-3xl p-8 text-center transition-transform hover:-translate-y-1 sm:w-[56vw] md:w-[40vw] lg:w-[30vw]"
           >
             <p className="eyebrow mb-4">What&apos;s next</p>
             <h3 className="font-display text-3xl text-moon md:text-4xl">

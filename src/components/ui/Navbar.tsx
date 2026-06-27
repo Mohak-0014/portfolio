@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { sections, profile } from "@/data/content";
 
 /** Floating top nav with smooth-scroll anchors driven by Lenis. */
@@ -42,9 +43,14 @@ export default function Navbar() {
   };
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-5"
+        scrolled
+          ? "border-b border-ink-600/40 bg-ink-800/60 py-3 backdrop-blur-md"
+          : "py-5"
       }`}
     >
       <nav className="container-x flex items-center justify-between">
@@ -81,6 +87,6 @@ export default function Navbar() {
           Get in touch
         </button>
       </nav>
-    </header>
+    </motion.header>
   );
 }

@@ -9,7 +9,7 @@ export default function Hobbies() {
   return (
     <Section id="hobbies">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="scale">
           <p className="eyebrow mb-3">Off the clock</p>
           <h2 className="section-title">
             The things that keep me <span className="text-accent">human</span>.
@@ -20,7 +20,9 @@ export default function Hobbies() {
           {hobbies.map((h, i) => (
             <StaggerItem
               key={h.name}
-              className="group glass relative overflow-hidden rounded-3xl p-8 transition-transform hover:-translate-y-1"
+              className={`group glass relative overflow-hidden rounded-3xl p-8 transition-transform hover:-translate-y-1 ${
+                i === hobbies.length - 1 ? "lg:col-start-2" : ""
+              }`}
             >
               <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-accent/10 blur-2xl transition-opacity group-hover:opacity-100" />
               <span className="font-display text-5xl text-ink-600 group-hover:text-accent/40">

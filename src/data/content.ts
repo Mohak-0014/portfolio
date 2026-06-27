@@ -28,7 +28,7 @@ export const about = {
   chasing:
     "These days I’m focused on building thoughtful, AI-driven products — while learning everything I can and trying to keep healthy and balanced along the way. It’s very much a work in progress.",
   beats: [
-    "Most things I build start as a simple question.",
+    "Most things I build start with one simple question: what if?",
     "I’m drawn to problems that don’t have an obvious answer yet.",
     "Still building, still learning, still curious.",
   ],
@@ -141,7 +141,7 @@ export const timeline: TimelineItem[] = [
 export const hobbies: { name: string; note: string }[] = [
   { name: "Sport", note: "Playing and watching — cricket above all else." },
   { name: "Music", note: "Always something playing in the background." },
-  { name: "Family", note: "The people that keep me grounded." },
+  { name: "People", note: "The ones who keep me grounded." },
   { name: "New tech", note: "Exploring tools and ideas just to see how they work." },
 ];
 
@@ -154,34 +154,16 @@ export const sidequests: { title: string; status: string; note: string; icon: st
     note: "Trying to convince my legs that 10Ks are supposed to be fun. Next stop: a half marathon.",
   },
   {
-    icon: "🧪",
-    title: "Questionable Experiments",
-    status: "Ongoing",
-    note: "Turning “Wouldn’t it be cool if…” into “Why did I do this to myself?”",
+    icon: "🏏",
+    title: "Cricket Glory",
+    status: "Delusional",
+    note: "Still chasing a cover drive that works more than once an over.",
   },
   {
-    icon: "📚",
-    title: "Learning Rabbit Holes",
-    status: "Lost",
-    note: "Currently somewhere between system design, AI agents, and whatever catches my curiosity next.",
-  },
-  {
-    icon: "✈️",
-    title: "Bucket List",
-    status: "Locked",
-    note: "Run a half marathon · Visit Japan · Learn an instrument · Collect stories worth telling.",
-  },
-  {
-    icon: "☕",
-    title: "Coffee Research",
-    status: "Inconclusive",
-    note: "Still investigating whether coffee improves productivity or just confidence.",
-  },
-  {
-    icon: "🚀",
-    title: "Dream Projects",
-    status: "Someday",
-    note: "Build something people talk about because they love it — not because I won’t stop talking about it.",
+    icon: "🤖",
+    title: "AI Tinkering",
+    status: "Always-On",
+    note: "Teaching machines to do my chores. So far they’ve mostly taught me patience.",
   },
   {
     icon: "🎸",
@@ -201,8 +183,8 @@ export const sidequests: { title: string; status: string; note: string; icon: st
 export const contact = {
   email: "mohaknahata0014@gmail.com",
   socials: [
-    { label: "GitHub", href: "https://github.com/" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/" },
+    { label: "GitHub", href: "https://github.com/Mohak-0014" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/mohak-nahata-1776ab416/" },
   ],
 };
 

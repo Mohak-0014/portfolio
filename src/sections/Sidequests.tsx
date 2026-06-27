@@ -10,7 +10,7 @@ export default function Sidequests() {
   return (
     <Section id="sidequests">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="fade">
           <p className="eyebrow mb-3">Press ▶ to play</p>
           <h2 className="section-title">
             Side<span className="text-accent">quests</span>.

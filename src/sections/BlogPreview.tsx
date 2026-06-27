@@ -12,7 +12,7 @@ export default async function BlogPreview() {
   return (
     <Section id="blog">
       <div className="container-x">
-        <Reveal>
+        <Reveal variant="left">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="eyebrow mb-3">From the journal</p>

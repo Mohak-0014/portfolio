@@ -16,7 +16,7 @@ export default function Section({ id, children, className, bare }: Props) {
       id={id}
       className={clsx(
         "relative w-full",
-        !bare && "py-28 md:py-40",
+        !bare && "py-20 md:py-32",
         className
       )}
     >
